@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+  header {
+    display: flex; align-items: center; gap: 1em; font-size: 25pt; font-weight: bold;
+  }
+  .book-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  .book-list li {
+    margin-bottom: 1em;
+  }
+</style>
+  <header>
+    <img src="logo.svg" width="50pt" alt="Logo" class="logo"/>
+    {{ section.title }}
+  </header>
+  {{ section.content | safe }}
+
+  {% set books_section = get_section(path="books/_index.md") %}
+  {% if books_section.pages | length > 0 %}
+    <h3>{{ books_section.title }}</h3>
+    <ol class="book-list">
+      {% for book in books_section.pages %}
+        <li>
+          <a href="https://raw.githubusercontent.com/sophia-publishing/{{ book.extra.project }}/pdf-output/book.pdf">
+            <img src="https://raw.githubusercontent.com/sophia-publishing/{{ book.extra.project }}/pdf-output/book-cover-for-web.jpg" alt="{{ book.title }}" style="max-width:200px;">
+          </a>
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p>No books available at the moment.</p>
+  {% endif %}
+{% endblock content %}
