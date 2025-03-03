@@ -7,10 +7,23 @@
   .book-list {
     list-style-type: none;
     padding: 0;
+    margin-top: 2em;
   }
   .book-list li {
     margin-bottom: 1em;
+    align-items: top;
   }
+
+  .cover {
+    box-shadow: 5px 5px 3px 2px rgb(0 0 0 / 20%);
+    border-radius: 1px;
+    border-style: solid;
+    border-color: rgb(0 0 0 / 20%);
+    width: 15em;
+    float: left;
+    margin-right: 2em;
+}
+
 </style>
   <header>
     <img src="logo.svg" width="50pt" alt="Logo" class="logo"/>
@@ -23,10 +36,14 @@
     <h3>{{ books_section.title }}</h3>
     <ol class="book-list">
       {% for book in books_section.pages %}
+      {%    set synopsis = load_data(url="https://raw.githubusercontent.com/sophia-publishing/" ~ book.extra.project ~ "/main/README") %}
         <li>
           <a href="https://raw.githubusercontent.com/sophia-publishing/{{ book.extra.project }}/pdf-output/book.pdf">
-            <img src="https://raw.githubusercontent.com/sophia-publishing/{{ book.extra.project }}/pdf-output/book-cover-for-web.jpg" alt="{{ book.title }}" style="max-width:200px;">
-          </a>
+              <img src="https://raw.githubusercontent.com/sophia-publishing/{{ book.extra.project }}/pdf-output/book-cover-for-web.jpg" alt="{{ book.title }}" class="cover"/></a>
+              <p>
+          {{ synopsis | safe }}
+          </p>
+          <a href="https://github.com/sophia-publishing/{{book.extra.project}}">Source</a>
         </li>
       {% endfor %}
     </ol>
