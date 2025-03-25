@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
   <style>
-    header {
-      display: flex; align-items: center; gap: 1em; font-size: 25pt; font-weight: bold;
-    }
     .book-list {
       list-style-type: none;
       padding: 0;
@@ -37,10 +34,6 @@
       text-align: center;
     }
   </style>
-  <header>
-    <img src="logo.svg" width="50pt" alt="Logo" class="logo"/>
-    {{ section.title }}
-  </header>
   {{ section.content | safe }}
 
   {% set books_section = get_section(path="books/_index.md") %}

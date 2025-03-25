@@ -9,10 +9,17 @@
   </head>
   <body>
     <style>
+      header {
+        display: flex; align-items: center; gap: 1em; font-size: 25pt; font-weight: bold;
+      }
       footer {
         text-align: center;
       }
     </style>
+    <header>
+      <img src="logo.svg" width="50pt" alt="Logo" class="logo"/>
+      {{ config.title }}
+    </header>
     {% block content %}{% endblock content %}
     <footer>
       <hr/>
