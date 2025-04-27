@@ -1,6 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
   <style>
+    div.title {
+      grid-area: title;
+    }
+    div.book {
+      grid-area: book;
+    }
+    div.synopsis {
+      grid-area: synopsis;
+    }
     .book-list {
       list-style-type: none;
       padding: 0;
@@ -8,8 +17,20 @@
     }
     .book-list li {
       display:grid;
-      grid-template-columns: 1fr 2fr;
+      grid-template-areas: 
+        "title"
+        "book"
+        "synopsis";
       column-gap: 2em;
+      row-gap: 1em;
+    }
+    @media (min-width: 40em) {
+      .book-list li {
+        grid-template-columns: 1fr 2fr;
+        grid-template-areas: 
+          "title title"
+          "book synopsis";
+        }
     }
 
     .book img {
@@ -41,19 +62,20 @@
     <h3>{{ books_section.title }}</h3>
     <ol class="book-list">
       {% for book in books_section.pages %}
-      {%    set synopsis = load_data(url="https://raw.githubusercontent.com/sophia-publishing/" ~ book.extra.project ~ "/main/README") %}
+      {%    set synopsis = load_data(url="https://raw.githubusercontent.com/sophia-publishing/" ~ book.extra.project ~ "/main/SYNOPSIS") %}
         <li>
+          <div class="title">
+            <h4>
+              {{ book.title | safe }}—<i>{{ book.extra.author | safe }}</i>
+            </h4>
+          </div>
           <div class="book">
-            <a href="https://raw.githubusercontent.com/sophia-publishing/{{ book.extra.project }}/pdf-output/book.pdf">
+            <a href="https://raw.githubusercontent.com/sophia-publishing/{{ book.extra.project }}/pdf-output/print.pdf">
               <img src="https://raw.githubusercontent.com/sophia-publishing/{{ book.extra.project }}/pdf-output/book-cover-for-web.jpg" alt="{{ book.title }}"/>
             </a>
-            <p>
-              <b>{{ book.title | safe }}</b><br>
-              <i>{{ book.extra.author | safe }}</i>
-            </p>
           </div>
-          <div>
-            <p>{{ synopsis | safe }}</p>
+          <div class="synopsis">
+            <p>{{ synopsis | linebreaksbr | safe }}</p>
             <p><a href="https://github.com/sophia-publishing/{{book.extra.project}}">Source</a></p>
           </div>
         </li>
