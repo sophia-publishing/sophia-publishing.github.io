@@ -23,6 +23,7 @@
         "synopsis";
       column-gap: 2em;
       row-gap: 1em;
+      margin-bottom: 1em;
     }
     @media (min-width: 40em) {
       .book-list li {
@@ -62,7 +63,7 @@
     <h3>{{ books_section.title }}</h3>
     <ol class="book-list">
       {% for book in books_section.pages %}
-      {%    set synopsis = load_data(url="https://raw.githubusercontent.com/sophia-publishing/" ~ book.extra.project ~ "/main/SYNOPSIS") %}
+      {%    set synopsis = load_data(url="https://raw.githubusercontent.com/sophia-publishing/" ~ book.extra.project ~ "/main/" ~ book.extra.dir ~ "/SYNOPSIS") %}
         <li>
           <div class="title">
             <h4>
@@ -70,8 +71,8 @@
             </h4>
           </div>
           <div class="book">
-            <a href="https://raw.githubusercontent.com/sophia-publishing/{{ book.extra.project }}/pdf-output/print.pdf">
-              <img src="https://raw.githubusercontent.com/sophia-publishing/{{ book.extra.project }}/pdf-output/book-cover-for-web.jpg" alt="{{ book.title }}"/>
+            <a href="https://raw.githubusercontent.com/sophia-publishing/{{ book.extra.project }}/pdf-output/{{ book.extra.dir }}/print.pdf">
+              <img src="https://raw.githubusercontent.com/sophia-publishing/{{ book.extra.project }}/pdf-output/{{ book.extra.dir }}/book-cover-for-web.jpg" alt="{{ book.title }}"/>
               <button>Read</button>
             </a>
           </div>
