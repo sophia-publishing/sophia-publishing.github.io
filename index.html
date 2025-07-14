@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sophia Publishing</title>
+    <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
+  </head>
+  <body>
+    <style>
+      header {
+        display: flex; align-items: center; gap: 1em; font-size: 25pt; font-weight: bold;
+      }
+      footer {
+        text-align: center;
+      }
+    </style>
+    <header>
+      <img src="/logo.svg" width="50pt" alt="Logo" class="logo"/>
+      Sophia Publishing
+    </header>
+    
+  <style>
+    div.title {
+      grid-area: title;
+    }
+    div.book {
+      grid-area: book;
+    }
+    div.synopsis {
+      grid-area: synopsis;
+    }
+    .book-list {
+      list-style-type: none;
+      padding: 0;
+      margin-top: 2em;
+    }
+    .book-list li {
+      display:grid;
+      grid-template-areas: 
+        "title"
+        "book"
+        "synopsis";
+      column-gap: 2em;
+      row-gap: 1em;
+      margin-bottom: 1em;
+    }
+    @media (min-width: 40em) {
+      .book-list li {
+        grid-template-columns: 1fr 2fr;
+        grid-template-areas: 
+          "title title"
+          "book synopsis";
+        }
+    }
+
+    .book img {
+      filter:
+        drop-shadow(
+          1px 2px 3px hsla(0, 0%, 57%, 0.3)
+        )
+        drop-shadow(
+          2px 4px 6px hsla(0, 0%, 57%, 0.3)
+        )
+        drop-shadow(
+          4px 8px 12px hsla(0, 0%, 57%, 0.3)
+        );
+      will-change: transform;
+      transition: transform 450ms;
+    }
+    .book img:hover {
+      transform: scale(1.05);
+      transition: transform 150ms;
+    }
+    .book {
+      text-align: center;
+    }
+  </style>
+  <p>Our goal is to curate and publish books worth passing on to our grand children.
+Our books are published under a <a href="https://creativecommons.org/">Creative Commons</a>
+licence, and we always provide the LaTeX source code of the books.</p>
+<p><a href="https://sophia-publishing.github.io/donate">Donate</a> to support us.</p>
+
+
+  
+  
+    <h3>Download our books</h3>
+    <ol class="book-list">
+      
+      
+        <li>
+          <div class="title">
+            <h4>
+              Precalculus – Algebra II—<i>Carl Stitz and Jeff Zeager</i>
+            </h4>
+          </div>
+          <div class="book">
+            <a href="https://raw.githubusercontent.com/sophia-publishing/precalculus/pdf-output/algebra-2/print.pdf">
+              <img src="https://raw.githubusercontent.com/sophia-publishing/precalculus/pdf-output/algebra-2/book-cover-for-web.jpg" alt="Precalculus – Algebra II"/>
+              <button>Read</button>
+            </a>
+          </div>
+          <div class="synopsis">
+            <p>This is the third part of a series of Precalculus books by C. Stitz and J. Zeager, covering topics in Algebra viz. rational, root, radical and power functions. It also introduces further topics in functions like graphing, arithmetic and composition of functions, transformations of graphs, relations and implicit functions and inverse functions.<br><br>The subsequent books,  will be published here soon. You can get the original versions from https://stitz-zeager.com/ until then.<br><br>The book is written in an expository style with ample example problems, which help in self learning. It also has exhaustive exercise problems at the end of each section, with answers provided for all of the questions.<br></p>
+            <p><a href="https://github.com/sophia-publishing/precalculus">Source</a></p>
+          </div>
+        </li>
+      
+      
+        <li>
+          <div class="title">
+            <h4>
+              Precalculus – Algebra I—<i>Carl Stitz and Jeff Zeager</i>
+            </h4>
+          </div>
+          <div class="book">
+            <a href="https://raw.githubusercontent.com/sophia-publishing/precalculus/pdf-output/algebra-1/print.pdf">
+              <img src="https://raw.githubusercontent.com/sophia-publishing/precalculus/pdf-output/algebra-1/book-cover-for-web.jpg" alt="Precalculus – Algebra I"/>
+              <button>Read</button>
+            </a>
+          </div>
+          <div class="synopsis">
+            <p>This is the second part of a series of Precalculus books by C. Stitz and J. Zeager, covering topics in Algebra viz. basic and polynomial functions.<br><br>The subsequent books,  will be published here soon. You can get the original versions from https://stitz-zeager.com/ until then.<br><br>The book is written in an expository style with ample example problems, which help in self learning. It also has exhaustive exercise problems at the end of each section, with answers provided for all of the questions.<br></p>
+            <p><a href="https://github.com/sophia-publishing/precalculus">Source</a></p>
+          </div>
+        </li>
+      
+      
+        <li>
+          <div class="title">
+            <h4>
+              Appendix to Precalculus—<i>Carl Stitz and Jeff Zeager</i>
+            </h4>
+          </div>
+          <div class="book">
+            <a href="https://raw.githubusercontent.com/sophia-publishing/precalculus/pdf-output/appendix/print.pdf">
+              <img src="https://raw.githubusercontent.com/sophia-publishing/precalculus/pdf-output/appendix/book-cover-for-web.jpg" alt="Appendix to Precalculus"/>
+              <button>Read</button>
+            </a>
+          </div>
+          <div class="synopsis">
+            <p>This is part of a series of Precalculus books by C. Stitz and J. Zeager, and is presented as an Appendix to the main material. It covers the pre-requisites that the student should be familiar before starting on the subsequent books, which will be published here soon. You can get the original versions from https://stitz-zeager.com/ until then.<br><br>This book itself, covers Basic Set Theory, Cartesian Plane and Graphing Lines, Linear Equations in Two Unknowns, Polynomials, Quadratic Equations, Complex Numbers and Variations as part of the Algebra review.<br><br>As part of the Geometry review, it covers Angles in Degrees and Right Triangle Trigonometry.<br><br>The book is written in an expository style with ample example problems, which help in self learning. It also has exhaustive exercise problems at the end of each section, with answers provided for all of the questions.</p>
+            <p><a href="https://github.com/sophia-publishing/precalculus">Source</a></p>
+          </div>
+        </li>
+      
+      
+        <li>
+          <div class="title">
+            <h4>
+              The Archer's Revenge—<i>Destination Infinity</i>
+            </h4>
+          </div>
+          <div class="book">
+            <a href="https://raw.githubusercontent.com/sophia-publishing/archers-revenge/pdf-output//print.pdf">
+              <img src="https://raw.githubusercontent.com/sophia-publishing/archers-revenge/pdf-output//book-cover-for-web.jpg" alt="The Archer&#x27;s Revenge"/>
+              <button>Read</button>
+            </a>
+          </div>
+          <div class="synopsis">
+            <p>The Archer's Revenge is an action-masala novel, giving you the experience of eating a home-cooked meal. As you savour the nostalgia, and chew on the familiar places in and around Chennai, you’ll be met with a few surprises that will make you both laugh and cry.<br><br>In this debut novel, Destination Infinity inspires each of us that we, too, can write—all it takes is a healthy dose of foolhardiness.<br><br>Enjoy it with your kids and the kid in you!</p>
+            <p><a href="https://github.com/sophia-publishing/archers-revenge">Source</a></p>
+          </div>
+        </li>
+      
+    </ol>
+  
+
+    <footer>
+      <hr/>
+      Made with <span aria-label="Love" style="color: #f43f5e">&hearts;</span>
+      in Chennai by
+      <a href="https://arunkd13.github.io" target="_blank">arunkd13</a>
+    </footer>
+  </body>
+</html>
